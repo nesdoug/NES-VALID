@@ -1,7 +1,9 @@
 How to use...
-Shift-Right Click on the .NES file and choose "Copy as Path".
 
-paste path onto line 29, after the r like...
+Run Valid.py in a command prompt or terminal emulator, and type
 
-path = r"C:\Users\Doug\Desktop\PowerPak\py_backup\test.nes"
+    $ python3 Valid.py <path_to_nes_file>
+    
+It will give a description of the NES header info, and tell you if the filesize matches the header.
+This should help pinpoint errors in headers, such as incorrect # of PRG banks.
 
