@@ -34,7 +34,7 @@ path = sys.argv[1]
 # initialize some variables
 
 count = 0
-bankSize = 16384 # default size
+
 
 
 
@@ -74,7 +74,7 @@ prgROM = workArray[4]
 prgROMtotal = prgROM * 0x4000
 print ("PRGROM size = ", prgROM, " = ", prgROMtotal)
 
-if (prgROM != 0) and (prgROM != 1) and (prgROM != 2) and (prgROM != 4) and (prgROM != 8) and (prgROM != 16) and (prgROM != 32):
+if (prgROM != 0) and (prgROM != 1) and (prgROM != 2) and (prgROM != 4) and (prgROM != 8) and (prgROM != 16) and (prgROM != 32) and (prgROM != 64):
 	print ("  PRGROM banks should be a power of 2")
 if (prgROM == 0):
 	print ("  PRGROM banks can't be zero")
@@ -111,10 +111,7 @@ c = a + b
 
 Map = ""
 
-# default bankSize = 16384, already set
-if (prgROM == 2):
-	bankSize = 32768
-#1/2 = 8192
+
 
 if c == 0:
 	Map = "NROM"
@@ -126,12 +123,10 @@ elif c == 3:
 	Map = "CNROM"
 elif c == 4:
 	Map = "MMC3 TxROM"	
-	bankSize = 8192
 elif c == 5:
 	Map = "MMC5 ExROM"
 elif c == 7:
 	Map = "AxROM"
-	bankSize = 32768
 elif c == 9:
 	Map = "MMC2 PxROM"
 elif c == 10:
@@ -163,7 +158,7 @@ elif c == 26:
 elif c == 28:
 	Map = "Action 53"
 elif c == 30:
-	Map = "UNROM RetroUSB"
+	Map = "UNROM 512k, Oversized Homebrew"
 elif c == 31:
 	Map = "NSF music"
 elif c == 32:
@@ -172,7 +167,6 @@ elif c == 33:
 	Map = "Taito's TC0190"
 elif c == 34:
 	Map = "BNROM or NINA-001"
-	bankSize = 32768
 elif c == 36:
 	Map = "TXC"
 elif c == 48:
